@@ -4,7 +4,7 @@ const {Op} = require("sequelize");
 let controller={}
 
 //getall
-controller.getBrangall= async(req,res,nex)=>{
+controller.getBrangall= async(req,res,next)=>{
   try {
     var limit = parseInt(req.query.limit)
         var offset = parseInt(req.query.offset)
@@ -20,12 +20,12 @@ controller.getBrangall= async(req,res,nex)=>{
       }
     )
   } catch (error) {
-    nex(error);
+    next(error);
   }
 }
 
 //getbycodebarang
-controller.getBrangBycodebarang= async(req,res,nex)=>{
+controller.getBrangBycodebarang= async(req,res,next)=>{
     try {
         let code=req.query.kodeBarang
         let get = await db.Barang.findOne({
@@ -37,12 +37,12 @@ controller.getBrangBycodebarang= async(req,res,nex)=>{
           get
       )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 
 //getbyid
-controller.getBrangByid= async(req,res,nex)=>{
+controller.getBrangByid= async(req,res,next)=>{
     try {
         let id=req.params.id
         let get = await db.Barang.findOne({
@@ -50,12 +50,19 @@ controller.getBrangByid= async(req,res,nex)=>{
                 id:id
             }
         })
+        if (get != null){
+          res.status(201).json(
+            get        
+          )
+        }
         res.status(201).json(
-          get
+          {
+            message:"0"
+          }        
+        )
         
-      )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 

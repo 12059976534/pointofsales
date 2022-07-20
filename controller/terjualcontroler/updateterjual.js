@@ -3,7 +3,7 @@ const db = require('../../models');
 let controller={}
 
 //onecreate
-controller.updateterjualbyid= async(req,res,nex)=>{
+controller.updateterjualbyid= async(req,res,next)=>{
   try {
     let id = req.params.id;
     let data={
@@ -24,7 +24,7 @@ controller.updateterjualbyid= async(req,res,nex)=>{
         data:data
     })
   } catch (error) {
-    nex(error);
+    next(error);
   }
 }
 

@@ -4,7 +4,7 @@ const {Op} = require("sequelize");
 let controller={}
 
 //getall
-controller.getterjualAll= async(req,res,nex)=>{
+controller.getterjualAll= async(req,res,next)=>{
   try {
     var limit = parseInt(req.query.limit)
         var offset = parseInt(req.query.offset)
@@ -20,12 +20,12 @@ controller.getterjualAll= async(req,res,nex)=>{
       }
     )
   } catch (error) {
-    nex(error);
+    next(error);
   }
 }
 
 //getbyid
-controller.getterjualByid= async(req,res,nex)=>{
+controller.getterjualByid= async(req,res,next)=>{
     try {
         let id=req.params.id
         let get = await db.Terjual.findOne({
@@ -38,12 +38,12 @@ controller.getterjualByid= async(req,res,nex)=>{
         
       )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 
 //getterjualbyidbarang
-controller.getterjualbybarangid= async(req,res,nex)=>{
+controller.getterjualbybarangid= async(req,res,next)=>{
     try {
         const barangid = req.params.BarangId;
         let get = await db.Barang.findAll({
@@ -56,12 +56,12 @@ controller.getterjualbybarangid= async(req,res,nex)=>{
         }
       )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 
 //getterjualbycreateAt
-controller.getterjualbycreateAt= async(req,res,nex)=>{
+controller.getterjualbycreateAt= async(req,res,next)=>{
     try {
         const createat = req.query.createAt
         let get = await db.Terjual.findAll({
@@ -74,12 +74,12 @@ controller.getterjualbycreateAt= async(req,res,nex)=>{
         }
       )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 
   //getterjualbycodetransaksii
-controller.getterjualbycodetransaksi= async(req,res,nex)=>{
+controller.getterjualbycodetransaksi= async(req,res,next)=>{
     try {
         const kodeTransaksi = req.query.code
         let get = await db.Terjual.findAll({
@@ -92,7 +92,7 @@ controller.getterjualbycodetransaksi= async(req,res,nex)=>{
         }
       )
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 

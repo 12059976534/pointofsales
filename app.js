@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-const sekejul = require('./modul/skejuler/laporan')
-app.use(()=>sekejul)
+// const sekejul = require('./modul/skejuler/laporan')
+// app.use(()=>sekejul)
 
 // ====tes====
 // app.use("/",(req,res,next)=>{    
@@ -25,7 +25,7 @@ app.use(()=>sekejul)
 // })
 // ====tes====
 app.use("/",route);
-// app.use("/assets",express.static("assets"));
+app.use("/assets",express.static("assets"));
 
 
 // ===== hendling error ======

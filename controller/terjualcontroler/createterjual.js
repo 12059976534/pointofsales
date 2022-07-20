@@ -4,7 +4,7 @@ const db = require('../../models');
 let controller={} 
 
 //onecreate
-controller.createjualone= async(req,res,nex)=>{
+controller.createjualone= async(req,res,next)=>{
   try {
     let create = await db.Terjual.create({
         createAt:req.body.createAt,
@@ -18,12 +18,12 @@ controller.createjualone= async(req,res,nex)=>{
         data:create
     })
   } catch (error) {
-    nex(error);
+    next(next);
   }
 }
 
 //bulkcreate
-controller.createjualbulk= async(req,res,nex)=>{
+controller.createjualbulk= async(req,res,next)=>{
     try {
         let data=req.body
       let create = await db.Terjual.bulkCreate(
@@ -43,7 +43,7 @@ controller.createjualbulk= async(req,res,nex)=>{
           data:create
       })
     } catch (error) {
-      nex(error);
+      next(error);
     }
   }
 

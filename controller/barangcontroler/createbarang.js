@@ -3,7 +3,7 @@ const db = require('../../models');
 let controller={}
 
 //onecreate
-controller.createBarang= async(req,res,nex)=>{
+controller.createBarang= async(req,res,next)=>{
   try {
     let create = await db.Barang.create({
         createAt:req.body.createAt,
@@ -12,7 +12,7 @@ controller.createBarang= async(req,res,nex)=>{
         jumlah:req.body.jumlah,
         harga:req.body.harga,
         kodeBarang:req.body.kodeBarang,
-        poto:req.body.poto,
+        poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:req.body.Status,
       });
       res.status(201).json({
@@ -20,7 +20,7 @@ controller.createBarang= async(req,res,nex)=>{
         data:create
     })
   } catch (error) {
-    nex(error);
+    next(error);
   }
 }
 

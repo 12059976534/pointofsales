@@ -1,5 +1,5 @@
-var cron = require('node-cron');
+// var cron = require('node-cron');
 
-module.exports = cron.schedule('0 1 * * *', () => {
-  console.log('running a task every minute');
-});
+// module.exports = cron.schedule('0 1 * * *', () => {
+//   console.log('running a task every minute');
+// });
