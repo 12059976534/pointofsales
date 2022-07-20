@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "sales",
+    "username": "devmeete_salesroot",
+    "password": "1234xasde$#A",
+    "database": "devmeete_sales",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
