@@ -23,6 +23,7 @@ router.get("/geallterjualbyid/:id",controller.getterjual.getterjualByid)
 router.get("/getterjualbybarangid/:BarangId",controller.getterjual.getterjualbybarangid)
 router.get("/getterjualbycreateAt",controller.getterjual.getterjualbycreateAt)
 router.get("/getterjualbycodetransaksi",controller.getterjual.getterjualbycodetransaksi)
+router.get("/deleterjualbyid/id",controller.deleterjual.deleterjualbyid)
 
 //count data
 router.get("/getcountterjual",controller.countdata.getcountbarangrupiah);

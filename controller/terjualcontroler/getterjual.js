@@ -46,7 +46,7 @@ controller.getterjualByid= async(req,res,next)=>{
 controller.getterjualbybarangid= async(req,res,next)=>{
     try {
         const barangid = req.params.BarangId;
-        let get = await db.Barang.findAll({
+        let get = await db.Terjual.findAll({
             where:{
                 BarangId:barangid
             }

@@ -16,7 +16,8 @@ const getterjual = require("../controller/terjualcontroler/getterjual")
 controller.getterjual=getterjual
 const createterjual = require("../controller/terjualcontroler/createterjual")
 controller.createterjual=createterjual
-
+const deleterjual = require("../controller/terjualcontroler/deleteterjual")
+controller.deleterjual=deleterjual;
 //==========countdata ======
 const countdata = require("./countdata/count")
 controller.countdata = countdata
