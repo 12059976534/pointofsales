@@ -10,7 +10,7 @@ controller.getterjualAll= async(req,res,next)=>{
         var offset = parseInt(req.query.offset)
       let get = await db.Terjual.findAndCountAll({
         include:['barang'],
-        limit:limit,  
+        limit:limit,   
         offset:offset
       })
       res.status(201).json({

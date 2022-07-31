@@ -11,6 +11,7 @@ controller.createBarang= async(req,res,next)=>{
         name:req.body.name,
         jumlah:req.body.jumlah,
         harga:req.body.harga,
+        modal:req.body.modal, ///
         kodeBarang:req.body.kodeBarang,
         poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:req.body.Status,
