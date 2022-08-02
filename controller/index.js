@@ -22,4 +22,8 @@ controller.deleterjual=deleterjual;
 const countdata = require("./countdata/count")
 controller.countdata = countdata
 
+//==========laporan===========
+const laporan= require("../controller/laporan/laporan")
+controller.laporan =laporan
+
 module.exports = controller;

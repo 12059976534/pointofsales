@@ -29,4 +29,8 @@ router.get("/deleterjualbyid/id",controller.deleterjual.deleterjualbyid)
 router.get("/getcountterjual",controller.countdata.getcountbarangrupiah);
 router.get("/getcounalltbarang",controller.countdata.getcountbarang);
 
+//laporan
+router.get("/laporan",controller.laporan.laporan);
+router.get("/perbarang/:id",controller.laporan.perbarang);
+
 module.exports = router;
