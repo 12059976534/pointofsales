@@ -6,8 +6,6 @@ let controller={}
 //laporan
 controller.laporan = async(req,res,next)=>{
     try {
-        // let harga = []
-        // let perbarang = []
         let modal = 0;
         let terjual = 0;
         let barang = await db.Barang.findAndCountAll({
@@ -15,11 +13,8 @@ controller.laporan = async(req,res,next)=>{
         console.log(barang);
         if(barang.rows.length >= 0){
           for(let i= 0; i< barang.rows.length; i++){
-            // perbarang.push(barang.rows[i].id)
             modal = modal+barang.rows[i].harga
           }
-          console.log("======= harga =======")
-          // console.log(harga)
         }
         
         res.status(201).json({
@@ -58,7 +53,7 @@ console.log(barangs);
     totalterjual = get.count
   let totalharga =barangs.harga * totalterjual ;
   res.status(201).json({
-      
+      barangname:barangs.name,
       terjual:totalterjual,
       totalharga:totalharga 
   }

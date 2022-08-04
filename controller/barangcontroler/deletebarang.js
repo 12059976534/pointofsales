@@ -14,7 +14,7 @@ controller.deletebarangbyid= async(req,res,next)=>{
       }
     })
 
-
+    
     var datapoto = find.poto
     if(datapoto != null){
       var splitstring = datapoto.split('/')
@@ -34,7 +34,6 @@ controller.deletebarangbyid= async(req,res,next)=>{
 
 
     let update = await db.Barang.destroy(
-        
       {
         where:{
             id:id
