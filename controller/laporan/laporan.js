@@ -13,7 +13,7 @@ controller.laporan = async(req,res,next)=>{
         console.log(barang);
         if(barang.rows.length >= 0){
           for(let i= 0; i< barang.rows.length; i++){
-            modal = modal+barang.rows[i].harga
+            modal = modal+barang.rows[i].modal
           }
         }
         
