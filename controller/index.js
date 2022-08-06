@@ -26,4 +26,8 @@ controller.countdata = countdata
 const laporan= require("../controller/laporan/laporan")
 controller.laporan =laporan
 
+//============user=============
+const postusercontroller = require("../controller/user/postuser")
+controller.postusercontroller = postusercontroller;
+
 module.exports = controller;

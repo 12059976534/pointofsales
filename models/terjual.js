@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     createAt: DataTypes.STRING,
     updaeAt: DataTypes.STRING,
     BarangId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
     kodeTransaksi: DataTypes.STRING,
     Status:DataTypes.STRING 
   },{
@@ -39,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Terjual.associate = function(models) { 
     Terjual.belongsTo(models.Barang,{foreignKey: 'BarangId', as: 'barang'})
+    Terjual.belongsTo(models.User,{foreignKey: 'UserId', as: 'user'})
   };
   return Terjual;
 };

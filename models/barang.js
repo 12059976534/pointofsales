@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     modal: DataTypes.INTEGER,
     kodeBarang: DataTypes.STRING,
     poto: DataTypes.STRING,
-    Status:DataTypes.STRING 
+    Status:DataTypes.STRING, 
+    UserId: DataTypes.INTEGER,
   },{
     timestamps:false
   }
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Barang.associate = function(models) {
     Barang.hasMany(models.Terjual,{as: 'terjual'})
+    Barang.belongsTo(models.User,{foreignKey: 'UserId', as: 'user'})
   };
   return Barang;
 };

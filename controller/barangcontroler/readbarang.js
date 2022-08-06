@@ -8,9 +8,10 @@ controller.getBrangall= async(req,res,next)=>{
   try {
     var limit = parseInt(req.query.limit)
         var offset = parseInt(req.query.offset)
+          
       let get = await db.Barang.findAndCountAll({
         limit:limit,
-        offset:offset
+        offset:offset,
       })
       res.status(201).json({
         limit:limit,
@@ -23,6 +24,33 @@ controller.getBrangall= async(req,res,next)=>{
     next(error);
   }
 }
+
+//getbarangbyuserid
+controller.getBrangallbyuserid= async(req,res,next)=>{
+  try {
+    var limit = parseInt(req.query.limit)
+        var offset = parseInt(req.query.offset)
+          
+      let get = await db.Barang.findAndCountAll({
+        limit:limit,
+        offset:offset,
+        where:{
+          UserId:req.query.userid
+        }
+      })
+      res.status(201).json({
+        limit:limit,
+        offset:offset,
+        jumlah:get.count,
+        data:get.rows
+      }
+    )
+  } catch (error) {
+    next(error);
+  }
+}
+
+
 
 //getbycodebarang
 controller.getBrangBycodebarang= async(req,res,next)=>{

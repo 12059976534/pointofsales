@@ -6,6 +6,7 @@ const uploadimage = upload.uploadimage
 
 //barang
 router.get("/getallbarang",controller.readBarang.getBrangall);
+router.get("/getbrangallbyuserid",controller.readBarang.getBrangallbyuserid);
 router.get("/getBrangBycodebarang",controller.readBarang.getBrangsearch);
 router.get("/getbarangsearch",controller.readBarang.getBrangBycodebarang);
 router.get("/getBrangbytimecreateAt",controller.readBarang.getBrangbytimecreateAt);
@@ -32,5 +33,8 @@ router.get("/getcounalltbarang",controller.countdata.getcountbarang);
 //laporan
 router.get("/laporan",controller.laporan.laporan);
 router.get("/perbarang/:id",controller.laporan.perbarang);
+
+//user
+router.post("/creteuser",controller.postusercontroller.createUser)
 
 module.exports = router;

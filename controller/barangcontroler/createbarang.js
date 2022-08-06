@@ -15,6 +15,7 @@ controller.createBarang= async(req,res,next)=>{
         kodeBarang:req.body.kodeBarang,
         poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:req.body.Status,
+        UserId:req.query.userid
       });
       res.status(201).json({
         message: "berhasil tambah data",
