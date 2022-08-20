@@ -8,10 +8,9 @@ controller.createUser= async(req,res,next)=>{
     let create = await db.User.create({
         createAt:req.body.createAt,
         tokoname:req.body.tokoname,
-        email:req.body.email,
-        username:req.body.username,
+        nohp:req.body.nohp,
         password:req.body.password,
-        // poto:protocol + '://' + req.header('host') + "/" + req.file.path,
+        // poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:"1",
       });
       res.status(201).json({
@@ -22,5 +21,8 @@ controller.createUser= async(req,res,next)=>{
     next(error);
   }
 }
+
+
+
 
 module.exports = controller;

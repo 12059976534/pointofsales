@@ -7,14 +7,21 @@ let controller={}
 controller.getcountbarang= async(req,res,next)=>{
     try {
         let dalamrupiah = 0;
+        let jumlahbarang = 0;
+
         let barang = await db.Barang.findAndCountAll({
+          where:{
+            UserId:req.query.userid
+          }
         })
+        
         for(let i=0; i<barang.rows.length; i++){
           dalamrupiah = dalamrupiah+barang.rows[i].harga * barang.rows[i].jumlah
+          jumlahbarang = jumlahbarang + barang.rows[i].jumlah
         }
         
         res.status(201).json({
-                jumlahbarang:barang.count,
+                jumlahbarang:jumlahbarang,
                 dalamrupiah:dalamrupiah
         }
       )
@@ -29,7 +36,11 @@ controller.getcountbarangrupiah= async (req,res,next)=>{
       let tottalrupiah = 0;  
       let berhasilterjual = await db.Terjual.findAndCountAll({
         where:{
-            Status:"1"
+          [Op.and]:[
+            {UserId:req.query.userid},
+            {Status:"1"}
+          ]
+            
          }
        })
     

@@ -27,7 +27,25 @@ const laporan= require("../controller/laporan/laporan")
 controller.laporan =laporan
 
 //============user=============
+//post
 const postusercontroller = require("../controller/user/postuser")
 controller.postusercontroller = postusercontroller;
+//update
+const updateuser = require("../controller/user/updateuser")
+controller.updateuser = updateuser
+//deleteuser
+const deleteuser = require("../controller/user/deleteuser")
+controller.deleteuser = deleteuser
+//getall_user
+const getuser = require("../controller/user/getuser")
+controller.getuser = getuser
+
+//==============auth=================
+const logincotroler = require("../controller/auth/login")
+controller.logincotroler = logincotroler
+const registrasicotroler = require("../controller/auth/registrasi")
+controller.registrasicotroler = registrasicotroler
+const updatepassword = require("../controller/auth/updatepassword")
+controller.updatepassword = updatepassword
 
 module.exports = controller;

@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       afterBulkCreate:async (createbulk) => {
         createbulk.forEach(async(x)=>{
-          console.log(x.BarangId)
+          console.log(x.BarangId)   
           await sequelize.models.Barang.decrement({
            jumlah: 1
           },{

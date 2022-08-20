@@ -98,12 +98,22 @@ controller.getBrangByid= async(req,res,next)=>{
 controller.getBrangsearch= async(req,res,nex)=>{
     try {
         const search = req.query.keyword;
+        const Userid = req.body.userid;
         let get = await db.Barang.findAll({
             where:{
-                [Op.or]:[
-                    {name:{[Op.like]:'%'+search+'%'}},
-                    {harga:{[Op.like]:'%'+search+'%'}},
-                ]
+                [Op.and]:[
+                  {
+                    UserId:Userid
+                  },
+                  {
+                    [Op.or]:[
+                      {name:{[Op.like]:'%'+search+'%'}},
+                      {harga:{[Op.like]:'%'+search+'%'}},
+                    ]
+                  }
+
+                ],
+               
             }
         })
         res.status(201).json({
