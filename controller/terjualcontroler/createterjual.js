@@ -11,6 +11,7 @@ controller.createjualone= async(req,res,next)=>{
         updaeAt:req.body.updaeAt,
         BarangId:req.body.BarangId,
         kodeTransaksi:req.body.kodeTransaksi,
+        UserId:req.body.userId,
         Status:req.body.Status,
       });
       res.status(201).json({

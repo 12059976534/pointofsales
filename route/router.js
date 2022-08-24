@@ -20,6 +20,7 @@ router.post("/deletebarangbyid/:id",controller.deletebarang.deletebarangbyid);
 router.post("/createrjualone",controller.createterjual.createjualone)
 router.post("/createjualbulk",controller.createterjual.createjualbulk)
 router.get("/geallterjual",controller.getterjual.getterjualAll)
+router.get("/getterjualallbyuserid",controller.getterjual.getterjualAllbyuserid)
 router.get("/geallterjualbyid/:id",controller.getterjual.getterjualByid)
 router.get("/getterjualbybarangid/:barangid",controller.getterjual.getterjualbybarangid)
 router.get("/getterjualbycreateAt",controller.getterjual.getterjualbycreateAt)

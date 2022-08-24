@@ -25,6 +25,30 @@ controller.getterjualAll= async(req,res,next)=>{
   }
 }
 
+controller.getterjualAllbyuserid= async(req,res,next)=>{
+  try {
+    var limit = parseInt(req.query.limit)
+        var offset = parseInt(req.query.offset)
+      let get = await db.Terjual.findAndCountAll({
+        include:['barang'],
+        limit:limit,   
+        offset:offset,
+        where:{
+            UserId:req.query.userid,
+          }
+      })
+      res.status(201).json({
+        limit:limit,
+        offset:offset,
+        jumlah:get.count,
+        data:get.rows
+      }
+    )
+  } catch (error) {
+    next(error);
+  }
+}
+
 //getbyid
 controller.getterjualByid= async(req,res,next)=>{
     try {
@@ -67,7 +91,11 @@ controller.getterjualbycreateAt= async(req,res,next)=>{
         const createat = req.query.createAt
         let get = await db.Terjual.findAll({
             where:{
-               createAt:createat
+              [Op.and]:{
+                createAt:createat,
+                UserId:req.query.userid,
+              }
+               
             }
         })
         res.status(201).json({
@@ -85,7 +113,10 @@ controller.getterjualbycodetransaksi= async(req,res,next)=>{
         const kodeTransaksi = req.query.code
         let get = await db.Terjual.findAll({
             where:{
+              [Op.and]:{
+                UserId:req.query.userid,
                 kodeTransaksi:kodeTransaksi
+              }
             }
         })
         res.status(201).json({
