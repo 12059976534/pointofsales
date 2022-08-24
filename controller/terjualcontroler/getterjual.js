@@ -112,6 +112,7 @@ controller.getterjualbycodetransaksi= async(req,res,next)=>{
     try {
         const kodeTransaksi = req.query.code
         let get = await db.Terjual.findAll({
+          include:['barang'],
             where:{
               [Op.and]:{
                 UserId:req.query.userid,
