@@ -39,6 +39,7 @@ controller.updatepoto= async(req,res,next)=>{
       await splitstring.splice(0, 3)
       var aftersplice = splitstring.toString()
       var imagepath = aftersplice.replace(/,/g, "/")
+      //unlink
       try {
         fs.unlink(imagepath, (err) => {
             if(err){
@@ -48,7 +49,19 @@ controller.updatepoto= async(req,res,next)=>{
         } catch (error) {
           console.log(error)
       }
-
+     
+      let update=db.User.update({
+        poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
+      },{
+        where:{
+          id:req.params.id
+        }
+      })
+      res.status(201).json({
+        message:"update succes",
+        data:update
+      })
+    }else{
       let update=db.User.update({
         poto:req.protocol + '://' + req.header('host') + "/" + req.file.path,
       },{
