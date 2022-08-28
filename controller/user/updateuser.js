@@ -9,6 +9,7 @@ controller.updateuser= async(req,res,next)=>{
       updateAt:req.body.createAt,
         tokoname:req.body.tokoname,
         nohp:req.body.nohp,
+        updateAt:req.body.updateAt,
         // poto:protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:"1",
       },{
