@@ -8,8 +8,7 @@ controller.updateuser= async(req,res,next)=>{
     let update = await db.User.update({
       updateAt:req.body.createAt,
         tokoname:req.body.tokoname,
-        email:req.body.email,
-        username:req.body.username,
+        nohp:req.body.nohp,
         // poto:protocol + '://' + req.header('host') + "/" + req.file.path,
         Status:"1",
       },{
