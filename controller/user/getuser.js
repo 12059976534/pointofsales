@@ -37,5 +37,29 @@ controller.getuserbyid = async (req,res,next)=>{
     }
  }
 
+ controller.getuserbynumber = async (req,res,next)=>{
+    try {
+     let getdata = await db.User.findOne({
+        where:{
+            nohp:req.params.nohp
+        }
+     })
+     if(getdata != null){
+        res.status(201).json({
+            message:"getsucces",
+            data:getdata
+         })
+     }else{
+        res.status(201).json({
+            message:"nouser",
+            data:[]
+         })
+     }
+    
+    } catch (error) {
+     next(error)
+    }
+ }
+
 
 module.exports = controller

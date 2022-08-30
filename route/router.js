@@ -42,6 +42,7 @@ router.post("/updatepoto/:id",uploadimage.single("poto"),controller.updateuser.u
 router.post("/deleteuserbyid/:id",controller.deleteuser.deleteuserbyid)
 router.get("/getalluser",controller.getuser.getuserall)
 router.get("/getuserbyid/:id",controller.getuser.getuserbyid)
+router.get("/getuserbynumber/:nohp",controller.getuser.getuserbynumber)
 
 //auth
 router.post("/login",controller.logincotroler.login)
